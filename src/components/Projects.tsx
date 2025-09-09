@@ -41,9 +41,6 @@ const Projects = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-primary mb-4">
               Featured Projects
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A collection of projects that showcase my expertise in modern web development
-            </p>
           </motion.div>
 
           {/* Featured Projects Grid */}

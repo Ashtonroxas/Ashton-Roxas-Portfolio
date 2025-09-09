@@ -41,9 +41,6 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-primary mb-4">
               About Me
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Passionate about creating innovative solutions and driving digital transformation
-            </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -53,8 +50,8 @@ const About = () => {
                 <div className="absolute -inset-4 bg-gradient-hero rounded-radius-large blur opacity-75 group-hover:opacity-100 transition-opacity animate-glow" />
                 <div className="relative glass-card p-1 rounded-radius-large">
                   <img
-                    src={portfolioData.personal.image}
-                    alt={portfolioData.personal.name}
+                    src="/me.jpg"
+                    alt="My profile picture"
                     className="w-full max-w-md mx-auto rounded-radius-large object-cover aspect-square"
                   />
                 </div>
@@ -67,7 +64,7 @@ const About = () => {
               >
                 <div className="text-center">
                   <div className="text-2xl font-bold text-gradient-accent"></div>
-                  <div className="text-xs text-muted-foreground">Projects</div>
+                  <div className="text-xs text-muted-foreground">Proud FILO!</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -75,7 +72,7 @@ const About = () => {
             {/* Content */}
             <motion.div variants={itemVariants} className="space-y-6">
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Crafting Digital Excellence
+                I'm {portfolioData.personal.name}
               </h3>
 
               <p className="text-lg text-muted-foreground leading-relaxed">

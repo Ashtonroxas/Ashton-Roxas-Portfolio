@@ -127,7 +127,7 @@ export const portfolioData = {
   social: [
     { 
       name: "GitHub", 
-      url: "https://github.com", 
+      url: "https://github.com/Ashtonroxas", 
       icon: "Github",
       username: "@ashtonroxas"
     },

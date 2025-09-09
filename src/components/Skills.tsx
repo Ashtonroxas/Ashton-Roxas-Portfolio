@@ -104,32 +104,6 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Additional Skills Cloud */}
-          {/*<motion.div variants={itemVariants} className="mt-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Additional Technologies</h3>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3">
-              {[
-                "GraphQL", "Redux", "Webpack", "Jest", "Cypress", "Sass",
-                "Material-UI", "Styled Components", "Nginx", "Redis",
-                "Elasticsearch", "Jenkins", "Kubernetes", "Terraform"
-              ].map((tech, index) => (
-                <motion.span
-                  key={tech}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                  transition={{ delay: index * 0.1 + 1, duration: 0.4 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="px-4 py-2 glass-card rounded-radius-small text-sm font-medium text-muted-foreground hover:text-accent hover:shadow-glow transition-all cursor-default"
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>*/}
-
           {/* CTA */}
           <motion.div variants={itemVariants} className="text-center mt-16">
             <div className="glass-card p-8 rounded-radius-large max-w-2xl mx-auto">
