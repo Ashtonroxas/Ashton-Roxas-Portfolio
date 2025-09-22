@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Star } from "lucide-react";
+import { ExternalLink, Github, Star, FileDown } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 const Projects = () => {
@@ -12,9 +12,7 @@ const Projects = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
@@ -49,8 +47,8 @@ const Projects = () => {
             className="grid lg:grid-cols-2 gap-8 mb-12"
           >
             {portfolioData.projects
-              .filter(project => project.featured)
-              .map((project, index) => (
+              .filter((project) => project.featured)
+              .map((project) => (
                 <motion.div
                   key={project.title}
                   variants={itemVariants}
@@ -59,37 +57,38 @@ const Projects = () => {
                   <div className="glass-card rounded-radius-large overflow-hidden hover:shadow-large transition-all duration-300 hover:-translate-y-2">
                     {/* Project Image */}
                     <div className="relative overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
                       <div className="absolute inset-0 bg-gradient-hero opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                        <motion.a
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 bg-card/90 backdrop-blur-sm rounded-full hover:shadow-glow transition-all"
-                        >
-                          <Github className="w-6 h-6 text-foreground" />
-                        </motion.a>
-                        <motion.a
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 bg-card/90 backdrop-blur-sm rounded-full hover:shadow-glow transition-all"
-                        >
-                          <ExternalLink className="w-6 h-6 text-foreground" />
-                        </motion.a>
+                        {project.github && (
+                          <motion.a
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-card/90 backdrop-blur-sm rounded-full hover:shadow-glow transition-all"
+                          >
+                            <Github className="w-6 h-6 text-foreground" />
+                          </motion.a>
+                        )}
+                        {project.live && (
+                          <motion.a
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-card/90 backdrop-blur-sm rounded-full hover:shadow-glow transition-all"
+                          >
+                            <ExternalLink className="w-6 h-6 text-foreground" />
+                          </motion.a>
+                        )}
                       </div>
                       <div className="absolute top-4 right-4">
                         <div className="flex items-center gap-1 bg-card/90 backdrop-blur-sm rounded-full px-3 py-1">
                           <Star className="w-4 h-4 text-accent fill-accent" />
-                          <span className="text-sm font-medium text-foreground">Featured</span>
+                          <span className="text-sm font-medium text-foreground">
+                            Featured
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -117,28 +116,32 @@ const Projects = () => {
 
                       {/* Links */}
                       <div className="flex gap-4">
-                        <motion.a
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          <Github className="w-4 h-4" />
-                          <span>Code</span>
-                        </motion.a>
-                        <motion.a
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span>Live Demo</span>
-                        </motion.a>
+                        {project.github && (
+                          <motion.a
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            <Github className="w-4 h-4" />
+                            <span>Code</span>
+                          </motion.a>
+                        )}
+                        {project.live && (
+                          <motion.a
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            <span>Live Demo</span>
+                          </motion.a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -148,7 +151,9 @@ const Projects = () => {
 
           {/* Other Projects */}
           <motion.div variants={itemVariants} className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Other Projects</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Other Projects
+            </h3>
           </motion.div>
 
           <motion.div
@@ -156,8 +161,8 @@ const Projects = () => {
             className="grid md:grid-cols-2 gap-6"
           >
             {portfolioData.projects
-              .filter(project => !project.featured)
-              .map((project, index) => (
+              .filter((project) => !project.featured)
+              .map((project) => (
                 <motion.div
                   key={project.title}
                   variants={itemVariants}
@@ -168,26 +173,30 @@ const Projects = () => {
                       {project.title}
                     </h4>
                     <div className="flex gap-2">
-                      <motion.a
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 hover:bg-accent/10 rounded-radius-small transition-colors"
-                      >
-                        <Github className="w-4 h-4 text-muted-foreground hover:text-foreground" />
-                      </motion.a>
-                      <motion.a
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 hover:bg-accent/10 rounded-radius-small transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4 text-muted-foreground hover:text-accent" />
-                      </motion.a>
+                      {project.github && (
+                        <motion.a
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 hover:bg-accent/10 rounded-radius-small transition-colors"
+                        >
+                          <Github className="w-4 h-4 text-muted-foreground hover:text-foreground" />
+                        </motion.a>
+                      )}
+                      {project.live && (
+                        <motion.a
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 hover:bg-accent/10 rounded-radius-small transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4 text-muted-foreground hover:text-accent" />
+                        </motion.a>
+                      )}
                     </div>
                   </div>
 
@@ -215,17 +224,33 @@ const Projects = () => {
           </motion.div>
 
           {/* CTA */}
-          <motion.div variants={itemVariants} className="text-center mt-12">
+          <motion.div
+            variants={itemVariants}
+            className="text-center mt-12 flex flex-col items-center gap-4"
+          >
+            {/* GitHub CTA */}
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href={portfolioData.social.find(s => s.name === "GitHub")?.url}
+              href={portfolioData.social.find((s) => s.name === "GitHub")?.url}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-hero inline-flex items-center gap-2"
             >
               <Github className="w-5 h-5" />
               <span>View All Projects on GitHub</span>
+            </motion.a>
+
+            {/* Resume CTA */}
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/AshtonRoxas_Resume.pdf"
+              download
+              className="btn-hero inline-flex items-center gap-2"
+            >
+              <FileDown className="w-5 h-5" />
+              <span>Download Resume</span>
             </motion.a>
           </motion.div>
         </motion.div>

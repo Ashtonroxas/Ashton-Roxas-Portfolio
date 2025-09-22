@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Mail, Calendar } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 const About = () => {
@@ -50,25 +49,14 @@ const About = () => {
                 <div className="absolute -inset-4 bg-gradient-hero rounded-radius-large blur opacity-75 group-hover:opacity-100 transition-opacity animate-glow" />
                 <div className="relative glass-card p-1 rounded-radius-large">
                   <img
-                    src="/me.jpg"
+                    src="/portfolio.jpg"
                     alt="My profile picture"
                     className="w-full max-w-md mx-auto rounded-radius-large object-cover aspect-square"
                   />
                 </div>
               </div>
 
-              <motion.div
-                className="absolute -bottom-4 -left-4 glass-card p-4 rounded-radius hidden md:block"
-                animate={{ y: [10, -10, 10] }}
-                transition={{ repeat: Infinity, duration: 4, delay: 2 }}
-              >
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gradient-accent"></div>
-                  <div className="text-xs text-muted-foreground">Proud FILO!</div>
-                </div>
-              </motion.div>
             </motion.div>
-
             {/* Content */}
             <motion.div variants={itemVariants} className="space-y-6">
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -79,32 +67,16 @@ const About = () => {
                 {portfolioData.personal.bio}
               </p>
 
-              {/* Details */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <MapPin className="w-5 h-5 text-accent" />
-                  <span>{portfolioData.personal.location}</span>
-                </div>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <Mail className="w-5 h-5 text-accent" />
-                  <span>{portfolioData.personal.email}</span>
-                </div>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <Calendar className="w-5 h-5 text-accent" />
-                  <span>Available for new opportunities</span>
-                </div>
-              </div>
-
               {/* Highlights */}
               <motion.div
                 variants={containerVariants}
                 className="grid sm:grid-cols-2 gap-4 mt-8"
               >
                 {[
-                  { label: "Clean Code", value: "Always" },
-                  { label: "Team Player", value: "100%" },
-                  { label: "Problem Solver", value: "Expert" },
-                  { label: "Innovation", value: "Core" },
+                  { label: " ", value: "Gadget Geek" },
+                  { label: " ", value: "SWE%" },
+                  { label: " ", value: "Problem Solver" },
+                  { label: " ", value: "Philomath" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.label}

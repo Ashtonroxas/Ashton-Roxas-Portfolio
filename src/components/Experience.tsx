@@ -126,7 +126,7 @@ const Experience = () => {
           <motion.div variants={itemVariants} className="mt-20">
             <div className="text-center mb-12">
               <h3 className="text-2xl md:text-3xl font-bold text-gradient-accent mb-4">
-                Education & Certifications
+                Education 
               </h3>
             </div>
 
@@ -151,6 +151,8 @@ const Experience = () => {
                 </div>
                 <p className="text-muted-foreground text-sm">
                   {/*Insert any description here*/ }
+                  Relevant Coursework: Data Structures, Algorithms, Database Systems, Web Development, Software Engineering, Operating Systems.
+                  <br />
                 </p>
               </motion.div>
 
@@ -164,16 +166,13 @@ const Experience = () => {
                     <CheckCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-foreground">Professional Certifications</h4>
-                    <p className="text-accent">Various Providers</p>
+                    <h4 className="text-lg font-bold text-foreground"> </h4>
+                    <p className="text-accent"> </p>
                   </div>
                 </div>
                 <div className="space-y-2">
                   {[
-                    "AWS Certified Solutions Architect",
-                    "Google Cloud Professional Developer",
-                    "Meta React Developer Certificate",
-                    "MongoDB Certified Developer"
+                    " " 
                   ].map((cert, index) => (
                     <div key={cert} className="flex items-center gap-2">
                       <CheckCircle className="w-3 h-3 text-accent" />

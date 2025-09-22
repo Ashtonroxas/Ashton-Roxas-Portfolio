@@ -22,12 +22,10 @@ const Footer = () => {
                 {portfolioData.personal.name}
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                {portfolioData.personal.title} passionate about creating exceptional digital experiences 
-                and building scalable solutions that make a difference.
+                {portfolioData.personal.title} & Software Engineer💻
               </p>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <span>Made with</span>
-                <Heart className="w-4 h-4 text-red-500 fill-red-500" />
                 <span>using React & Tailwind CSS</span>
               </div>
             </div>

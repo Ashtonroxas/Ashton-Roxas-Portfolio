@@ -108,23 +108,6 @@ const Hero = () => {
 
             </motion.div>
           </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.6 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.button
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              onClick={scrollToProjects}
-              className="p-2 rounded-full glass-card hover:shadow-glow transition-all group"
-            >
-              <ChevronDown className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors" />
-            </motion.button>
-          </motion.div>
         </div>
       </div>
     </section>

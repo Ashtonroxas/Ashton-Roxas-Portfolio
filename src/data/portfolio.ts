@@ -1,9 +1,9 @@
 export const portfolioData = {
   personal: {
     name: "Ashton Roxas",
-    title: "Computer Science Student",
+    title: "CS Student🧑‍🎓",
     tagline: "Passionate about building innovative software solutions",
-    email: "ashton_roxas@student.uml.edu",
+    email: "ashton.roxas@gmail.com",
     location: "Manchester, NH",
     bio: "Computer Science student at University of Massachusetts Lowell,  passionate about full-stack development and game programming. Dean's List honors student with leadership experience as UML Club President. Skilled in multiple programming languages and frameworks, with hands-on experience in building dynamic applications and contributing to community initiatives.",
     image: "/api/placeholder/300/300", // Will generate this
@@ -43,36 +43,49 @@ export const portfolioData = {
       { name: "SFML", level: 75, icon: "Gamepad2" },
       { name: "Boost", level: 70, icon: "Zap" },
       { name: "Linux", level: 78, icon: "Terminal" },
-      { name: "Windows", level: 85, icon: "Monitor" },
+      { name: "AWS", level: 85, icon: "Monitor" },
     ],
   },
 
-  projects: [
+   projects: [
     {
-      title: "Expense Tracker",
-      description: "Full-stack application to log and categorize personal expenses with interactive charts for real-time expense visualization.",
-      tech: ["React", "Node.js", "MongoDB", "RESTful APIs", "Charts"],
-      github: "https://github.com",
-      live: "https://demo.example.com",
-      image: "/api/placeholder/400/250",
+      title: "BudgetBuddy (Expense Tracker)",
+      description:
+        "Full-stack app for expense tracking with multi-currency support, secure APIs, and interactive charts.",
+      tech: ["Node.js", "MongoDB", "React", "Chart.js"],
+      image: "/images/budgetbuddy.png",
+      github: "https://github.com/Ashtonroxas/BudgetBuddy",
+      live: "",
+      featured: true,
+    },
+    {
+      title: "Portfolio Website",
+      description:
+        "Responsive React + TypeScript portfolio website with Framer Motion and Tailwind CSS.",
+      tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+      image: "/images/portfolio.png",
+      github: "https://github.com/Ashtonroxas/portfolio",
+      live: "/",
       featured: true,
     },
     {
       title: "Sokoban Game",
-      description: "2D puzzle game built with SFML using OOP principles, featuring dynamic gameplay, scalable level generation, and comprehensive unit testing.",
-      tech: ["C++", "SFML", "OOP", "Unit Tests", "Game Development"],
-      github: "https://github.com",
+      description:
+        "2D puzzle game built with C++ and SFML, featuring level generation and unit tests.",
+      tech: ["C++", "SFML", "Unit Tests"],
+      image: "/images/sokoban.png",
+      github: "https://github.com/Ashtonroxas/sokoban",
       live: "",
-      image: "/api/placeholder/400/250",
-      featured: true,
+      featured: false,
     },
     {
       title: "Evil Hangman Game",
-      description: "Dynamic hangman game using AVL Tree data structure to adjust word pool based on guesses, with efficient word list management.",
-      tech: ["C", "AVL Tree", "Data Structures", "Unit Tests", "Algorithms"],
-      github: "https://github.com",
+      description:
+        "Dynamic hangman game using an AVL Tree for adaptive gameplay and efficient data structures.",
+      tech: ["C", "AVL Tree", "Unit Tests"],
+      image: "/images/evil-hangman.png",
+      github: "https://github.com/Ashtonroxas/evil-hangman",
       live: "",
-      image: "/api/placeholder/400/250",
       featured: false,
     },
   ],
