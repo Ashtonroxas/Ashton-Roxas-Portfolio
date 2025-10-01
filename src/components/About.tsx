@@ -74,7 +74,7 @@ const About = () => {
               >
                 {[
                   { label: " ", value: "Gadget Geek" },
-                  { label: " ", value: "SWE%" },
+                  { label: " ", value: "SWE" },
                   { label: " ", value: "Problem Solver" },
                   { label: " ", value: "Philomath" },
                 ].map((item, index) => (

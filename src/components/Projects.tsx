@@ -252,6 +252,7 @@ const Projects = () => {
               <FileDown className="w-5 h-5" />
               <span>Download Resume</span>
             </motion.a>
+
           </motion.div>
         </motion.div>
       </div>
