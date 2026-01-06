@@ -14,6 +14,9 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      {/* Global Background Noise Texture */}
+      <div className="bg-noise" />
+      
       <Toaster />
       <Sonner />
       <BrowserRouter>
