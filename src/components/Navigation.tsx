@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
@@ -7,6 +7,14 @@ const Navigation = () => {
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Scroll Progress Logic
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -163,6 +171,12 @@ const Navigation = () => {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Progress Bar */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent origin-left"
+        style={{ scaleX }}
+      />
     </motion.nav>
   );
 };
