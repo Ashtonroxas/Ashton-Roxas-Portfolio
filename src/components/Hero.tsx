@@ -1,6 +1,25 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Download, ExternalLink } from "lucide-react";
+import { Download, ExternalLink } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { useState, useEffect } from "react";
+
+// --- Typewriter Component ---
+const Typewriter = ({ text, delay = 100 }: { text: string; delay?: number }) => {
+  const [currentText, setCurrentText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, delay);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, delay, text]);
+
+  return <span>{currentText}</span>;
+};
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -17,8 +36,9 @@ const Hero = () => {
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        {/* Updated to use the new 'animate-blob' class for the breathing effect */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-blob" style={{ animationDelay: "2s" }} />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -50,14 +70,15 @@ const Hero = () => {
               {portfolioData.personal.name}
             </motion.h1>
 
-            {/* Title */}
+            {/* Title with Typewriter Effect */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6"
+              className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6 min-h-[1.5em]"
             >
-              {portfolioData.personal.title}
+              <Typewriter text={portfolioData.personal.title} />
+              <span className="animate-pulse text-accent">|</span>
             </motion.h2>
 
             {/* Tagline */}
@@ -96,16 +117,6 @@ const Hero = () => {
                 <Download className="w-4 h-4" />
                 <span>Download Resume</span>
               </motion.button>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-              className="grid grid-cols-3 gap-8 max-w-md mx-auto mt-12"
-            >
-
             </motion.div>
           </motion.div>
         </div>
