@@ -310,7 +310,7 @@ const Projects = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/AshtonRoxas_Resume.pdf"
+              href="/AshtonRichRoxas_Resume .pdf"
               download
               className="btn-hero inline-flex items-center gap-2"
             >
