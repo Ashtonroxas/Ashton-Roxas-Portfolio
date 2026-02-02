@@ -1,12 +1,29 @@
+import { 
+  Code2, 
+  Globe, 
+  Database, 
+  Terminal, 
+  Cpu, 
+  Cloud, 
+  Layout, 
+  Server, 
+  GitBranch, 
+  Layers, 
+  Box, 
+  Workflow,
+  Zap,
+  CheckCircle 
+} from "lucide-react";
+
 export const portfolioData = {
   personal: {
     name: "Ashton Roxas",
-    title: "CS Student🧑‍🎓",
-    tagline: "Passionate about building innovative software solutions",
+    title: "CS Student & Full-Stack Engineer",
+    tagline: "Building scalable cloud solutions and intuitive user experiences.",
     email: "ashton.roxas@gmail.com",
     location: "Manchester, NH",
-    bio: "Computer Science student at University of Massachusetts Lowell,  passionate about full-stack development and game programming. Dean's List honors student with leadership experience as UML Club President. Skilled in multiple programming languages and frameworks, with hands-on experience in building dynamic applications and contributing to community initiatives.",
-    image: "/api/placeholder/300/300", // Will generate this
+    bio: "Computer Science student at UMass Lowell with a strong foundation in cloud-native architecture, full-stack development, and AI integration. Passionate about solving complex problems using modern tools like AWS, Azure, and React. Proven leader with experience driving community engagement and managing technical projects.",
+    image: "/portfolio.jpg", 
   },
 
   navigation: [
@@ -19,73 +36,77 @@ export const portfolioData = {
 
   skills: {
     languages: [
-      { name: "C", level: 85, icon: "Code" },
-      { name: "C++", level: 88, icon: "Code2" },
-      { name: "Java", level: 85, icon: "Coffee" },
-      { name: "Python", level: 85, icon: "Terminal" },
-      { name: "JavaScript", level: 82, icon: "FileCode" },
-      { name: "HTML/CSS", level: 80, icon: "Globe" },
-      { name: "SQL", level: 78, icon: "Database" },
+      { name: "Java", icon: Code2 },
+      { name: "Python", icon: Terminal },
+      { name: "C++", icon: Code2 },
+      { name: "TypeScript", icon: Globe },
+      { name: "SQL", icon: Database },
+      { name: "Kotlin", icon: Code2 },
+      { name: "HTML/CSS", icon: Layout },
+      { name: "C", icon: Code2 }, 
     ],
-    frontend: [
-      { name: "React", level: 85, icon: "Component" },
-      { name: "HTML/CSS", level: 80, icon: "Palette" },
-      { name: "JavaScript", level: 82, icon: "FileCode" },
+    cloud: [ 
+      { name: "AWS (Lambda/CDK)", icon: Cloud },
+      { name: "Azure", icon: Cloud },
+      { name: "Firebase", icon: Database },
+      { name: "Docker", icon: Box },
+      { name: "CI/CD", icon: Workflow },
+      { name: "Git", icon: GitBranch },
     ],
-    backend: [
-      { name: "Node.js", level: 85, icon: "Server" },
-      { name: "MongoDB", level: 82, icon: "DatabaseZap" },
-      { name: "RESTful APIs", level: 80, icon: "Route" },
+    frameworks: [
+      { name: "React.js", icon: Globe },
+      { name: "Next.js", icon: Globe },
+      { name: "Vite", icon: Zap },        
+      { name: "Node.js", icon: Server },
+      { name: "Spring Boot", icon: Server },
+      { name: "Tailwind CSS", icon: Layout },
+      { name: "SFML", icon: Cpu },
+      { name: "JUnit", icon: CheckCircle }, 
     ],
-    tools: [
-      { name: "Git", level: 85, icon: "GitBranch" },
-      { name: "VSCode", level: 90, icon: "Code" },
-      { name: "SFML", level: 75, icon: "Gamepad2" },
-      { name: "Boost", level: 70, icon: "Zap" },
-      { name: "Linux", level: 78, icon: "Terminal" },
-      { name: "AWS", level: 85, icon: "Monitor" },
+    concepts: [ 
+      { name: "Microservices", icon: Layers },
+      { name: "REST/GraphQL", icon: Globe },
+      { name: "Agile", icon: Workflow },
+      { name: "Data Structures", icon: Database },
+      { name: "OOP", icon: Code2 },
     ],
   },
 
-   projects: [
+  projects: [
     {
-      title: "BudgetBuddy (Expense Tracker)",
-      description:
-        "Full-stack app for expense tracking with multi-currency support, secure APIs, and interactive charts.",
-      tech: ["Node.js", "MongoDB", "React", "Chart.js"],
-      image: "/images/budgetbuddy.png",
-      github: "https://github.com/Ashtonroxas/BudgetBuddy",
+      title: "AudioByte",
+      description: "Cloud-native music platform architected with AWS Microservices. Engineered a serverless GraphQL API with Python Lambda resolvers to handle authenticated file uploads and concurrent user requests. Utilized AWS CDK for infrastructure-as-code to reduce deployment time by 40%.",
+      tech: ["AWS Lambda", "Python", "GraphQL", "AWS CDK", "React"],
+      image: "/images/audiobyte.png", // Ensure you add this image to your public folder!
+      github: "https://github.com/Ashtonroxas/AudioByte",
+      live: "",
+      featured: true,
+    },
+    {
+      title: "HawkAdvisor",
+      description: "AI-powered career discovery platform for 18,000+ students. Leveraged LLM logic and Azure Cognitive Search to bridge the gap between academic electives and industry demands. Implemented automated data scrapers and a '5-click rule' UI for rapid data access.",
+      tech: ["Kotlin", "Spring Boot", "Azure AI", "SQL", "LLM"],
+      image: "/images/hawkadvisor.png", 
+      github: "https://github.com/Ashtonroxas/HawkAdvisor",
+      live: "",
+      featured: true,
+    },
+    {
+      title: "GroupTab",
+      description: "Real-time expense-sharing SaaS app. Utilized Firebase Firestore snapshots for sub-second data synchronization. Engineered a secure 'Join Code' system with strict Security Rules. Designed a glass-morphism dashboard with dynamic receipt splitting logic.",
+      tech: ["React", "Vite", "Firebase", "Tailwind CSS"],
+      image: "/images/grouptab.png",
+      github: "https://github.com/Ashtonroxas/GroupTab",
       live: "",
       featured: true,
     },
     {
       title: "Portfolio Website",
-      description:
-        "Responsive React + TypeScript portfolio website with Framer Motion and Tailwind CSS.",
+      description: "Responsive personal portfolio built with React, TypeScript, and Framer Motion for smooth animations. Features dynamic content rendering and a modern component-based architecture.",
       tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
-      image: "/images/portfolio.png",
+      image: "/portfolio.jpg",
       github: "https://github.com/Ashtonroxas/portfolio",
       live: "/",
-      featured: true,
-    },
-    {
-      title: "Sokoban Game",
-      description:
-        "2D puzzle game built with C++ and SFML, featuring level generation and unit tests.",
-      tech: ["C++", "SFML", "Unit Tests"],
-      image: "/images/sokoban.png",
-      github: "https://github.com/Ashtonroxas/sokoban",
-      live: "",
-      featured: false,
-    },
-    {
-      title: "Evil Hangman Game",
-      description:
-        "Dynamic hangman game using an AVL Tree for adaptive gameplay and efficient data structures.",
-      tech: ["C", "AVL Tree", "Unit Tests"],
-      image: "/images/evil-hangman.png",
-      github: "https://github.com/Ashtonroxas/evil-hangman",
-      live: "",
       featured: false,
     },
   ],
@@ -95,47 +116,46 @@ export const portfolioData = {
       role: "President",
       company: "UML The Filipino Club",
       duration: "April 2024 – April 2025",
-      description: "Leading a team in organizing cultural events and expanding membership through strategic outreach and social media campaigns.",
+      description: "Directing a cross-functional team of 10 officers to execute cultural events.",
       achievements: [
-        "Increased club participation by 40% through targeted engagement strategies",
-        "Managed budgeting and logistics for cultural outreach programs",
-        "Expanded membership through social media campaigns and networking events",
+        "Managed a semester operating budget of $2,000+ and orchestrated logistics for large-scale outreach programs",
+        "Increased active membership by 25% through data-driven social media campaigns",
+        "Acted as primary liaison between the student body and university administration",
       ],
     },
     {
-      role: "Computer Science Student",
-      company: "University of Massachusetts Lowell",
+      role: "CS Student",
+      company: "UMass Lowell",
       duration: "2022 - 2026 (Expected)",
-      description: "Bachelor of Science in Computer Science with 3.1 GPA. Dean's List and Honors Student with comprehensive coursework in programming and system design.",
+      description: "Bachelor of Science in Computer Science (GPA: 3.3).",
       achievements: [
-        "Maintained Dean's List status and Honors Student recognition",
-        "Completed coursework in Data Structures, OOP, Operating Systems, and Computer Architecture",
-        "Developed strong foundation in C, C++, Java, Python, and web technologies",
+        "Relevant Coursework: Cloud Computing, Computer Security, Analysis of Algorithms, Mobile App Programming",
+        "Dean's List & Honors Student",
       ],
     },
     {
       role: "Barista/Cashier",
       company: "Gong Cha",
-      duration: "July 2021 - December 2024",
-      description: "Delivered exceptional customer service in fast-paced environment, managing transactions and streamlining store operations.",
+      duration: "July 2021 - Dec 2024",
+      description: "Provided exceptional service in a high-volume environment.",
       achievements: [
-        "Reduced service time by 15% through improved operational efficiency",
-        "Enhanced customer satisfaction through effective communication and teamwork",
+        "Reduced service time by 15% through operational efficiency improvements",
         "Managed high-volume transactions while maintaining quality standards",
       ],
     },
-    {
-      role: "Volunteer",
-      company: "Boston Misang Pinoy",
-      duration: "December 2020 – Present",
-      description: "Coordinate logistics for community events and create multimedia presentations to enhance engagement and community participation.",
-      achievements: [
-        "Demonstrated strong organizational leadership in event coordination",
-        "Designed multimedia presentations increasing attendee engagement",
-        "Contributed to meal preparation and event execution for community gatherings",
-      ],
-    },
   ],
+
+  leadership: {
+    role: "Volunteer Coordinator",
+    organization: "Boston Misang Pinoy",
+    duration: "Dec 2020 – Present",
+    description: "Coordinating logistics for community events and designing multimedia presentations to enhance engagement.",
+    achievements: [
+      "Demonstrated strong organizational leadership in event coordination",
+      "Designed multimedia presentations increasing attendee engagement",
+      "Contributed to meal preparation and event execution"
+    ]
+  },
 
   social: [
     { 
@@ -152,9 +172,9 @@ export const portfolioData = {
     },
     { 
       name: "Email", 
-      url: "mailto:ashton_roxas@student.uml.edu", 
+      url: "mailto:ashton.roxas@gmail.com", 
       icon: "Mail",
-      username: "ashton_roxas@student.uml.edu"
+      username: "ashton.roxas@gmail.com"
     },
   ],
 };
