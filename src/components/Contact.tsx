@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { Send, MapPin, Mail, Phone, MessageCircle } from "lucide-react";
 import * as Icons from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { useToast } from "@/hooks/use-toast";
+// [1] IMPORT EMAILJS
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -39,20 +40,54 @@ const Contact = () => {
     },
   };
 
+  // [2] UPDATED SUBMIT HANDLER
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
 
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
+  // ADD THIS HERE TO DEBUG:
+  console.log("Service ID:", serviceId);
+  console.log("Template ID:", templateId);
+  console.log("Public Key:", publicKey);
+
+    // Create the parameters object to match your EmailJS template variables
+    const templateParams = {
+      // CHANGE 1: Use 'name' instead of 'from_name' (or send both to be safe)
+      name: formData.name,       
+      from_name: formData.name,  // Keeping this just in case your template uses it
+      
+      // CHANGE 2: Use 'email' instead of 'from_email'
+      email: formData.email,
+      from_email: formData.email, // Keeping this just in case
+      
+      // These usually stay the same
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Error Sending Message",
+        description: "Something went wrong. Please try again later or email me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
